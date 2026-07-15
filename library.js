@@ -39,7 +39,7 @@ const Historian = {
     d_autoAddCharacter: true,
 
     // Secret that goes into the beginning of the author's note
-    secretText: "(Fact not known by Luna: Mairead is Luna's imaginary friend)",
+    secretText: "(Fact unknown to Luna: Mairead is her imaginary friend.)",
 
     // ------------------------------ //
     // ------------------------------ //
@@ -155,13 +155,13 @@ const Historian = {
         result += "\n";
 
         result += "[Settings]" + "\n";
-        result += "- Enable: true/false, set to 'true' to use the script." + "\n";
-        result += "- Elaborate Who: true/false, an additional card will be generated for the person mentioned in the journal." + "\n";
-        result += "- Elaborate Where: true/false, an additional card will be generated for the place mentioned in the journal." + "\n";
-        result += "- Characters: a list of main characters (except yourself), separated by comma." + "\n";
-        result += "- Record Activity: true/false, records the activities of a character." + "\n";
-        result += "- Record Bond: true/false, records the latest relationship between you and a character." + "\n";
-        result += "- Auto Add Character: true/false, add new characters identified in journals into the character list, if there are less than 3 characters registered." + "\n";
+        result += "- Enable: true/false. Set to 'true' to use the script." + "\n";
+        result += "- Elaborate Who: true/false. An additional card will be generated for the person mentioned in the journal." + "\n";
+        result += "- Elaborate Where: true/false. An additional card will be generated for the place mentioned in the journal." + "\n";
+        result += "- Characters: A list of main characters (excluding yourself), separated by commas." + "\n";
+        result += "- Record Activity: true/false. Records the activities of a character." + "\n";
+        result += "- Record Bond: true/false. Records the latest relationship between you and a character." + "\n";
+        result += "- Auto Add Character: true/false. Adds newly identified characters from journals into the character list, if fewer than 3 characters are registered." + "\n";
         result += "\n";
 
         result += "[Supported AI models]" + "\n";
@@ -169,18 +169,32 @@ const Historian = {
         result += "\n";
 
         result += "[Hidden settings]" + "\n";
-        result += "- Script won't start before the " + this.d_delayStart.toString() + "th action." + "\n";
-        result += "- Only " + this.d_maxSubJournal.toString() + " active journal. (Do things one by one!)" + "\n";
-        result += "- Journal expires after " + this.d_journalExpiry.toString() + " actions." + "\n";
-        result += "- Character log has a delay of " + this.d_characterDelay.toString() + " actions, but journal comes first." + "\n";
-        result += "    > Basic = 8 actions. Increases according to the number of characters listed, starting from the 4th person." + "\n";
-        result += "- The AI makes decision to update which character's log according to the number of mentions in recent story." + "\n";
+        result += "- The script won't start before the " + this.d_delayStart.toString() + "th action." + "\n";
+        result += "- Only " + this.d_maxSubJournal.toString() + " active journal at a time (Do things one by one!)." + "\n";
+        result += "- Journals expire after " + this.d_journalExpiry.toString() + " actions." + "\n";
+        result += "- Character log has a delay of " + this.d_characterDelay.toString() + " actions, but journal takes priority." + "\n";
+        result += "    > Base delay = 8 actions. Increases based on the number of characters listed, starting from the 4th person onward." + "\n";
+        result += "- The AI decides which character's log to update based on the number of mentions in the recent story." + "\n";
         result += "\n";
 
         result += "--------------------------------------------------" + "\n";
         result += "\n";
 
-        result += "In case of empty output, erase and continue might work..." + "\n";
+        result += "There are a couple of tweaks which can make the AI behave better, under scenario settings → Gameplay → AI Models:" + "\n";
+        result += "\n";
+
+        result += "> Memory System: Disable \"Optimized Context\" to use the script. (DeepSeek V4 Flash, Equinox, Gemma 4 31B)" + "\n";
+        result += "> Model Settings: Adjust \"Response Length\" to 150~175, if possible." + "\n";
+        result += "\n";
+
+        result += "But the AI can still get confused. Erase and continue usually gets the story back on track." + "\n";
+        result += "\n";
+
+        result += "--------------------------------------------------" + "\n";
+        result += "\n";
+
+        result += "In case anyone wants to know what the script does behind the scenes:" + "\n";
+        result += "https://github.com/Lunastal/Historian";
 
         return result;
     },
