@@ -23,7 +23,7 @@ const Historian = {
     // ------------------------------ //
 
     // List of main characters separated by comma
-    mainCharacters: "Luna",
+    mainCharacters: "Ewen,Duncan,Hamish",
 
     // Characters' alternative names/pet names/nicknames
     altNames: [
@@ -39,7 +39,7 @@ const Historian = {
     d_autoAddCharacter: true,
 
     // Secret that goes into the beginning of the author's note
-    secretText: "(Fact unknown to Luna: Mairead is her imaginary friend.)",
+    secretText: "(Luna doesn't appear in the story unless the player specifically looks for her)",
 
     // ------------------------------ //
     // ------------------------------ //
@@ -65,7 +65,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |When~Where~Who~What|Story\n\nExtract from \"Recent Story\": create a 4W sentence about a player-involved promise.\n\nRules:\n- Start line with |\n- Max 35 words inside |...|\n- When = Time the promise should be fulfilled\n- Where = location name only (no prepositions)\n- Who = NPC name only (no prepositions, the NPC who interacts with the player)\n- What = The promise\n- Story = The original output for the story\n- Order: When → Where → Who → What\n- Prepend formatted line before story\n\nExample: |today~library~Peter~read the new book|John walk out of the house, preparing to go to the bus stop."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |When~Where~Who~What|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nExtract from \"Recent Story\": create a 4W sentence about a player-involved promise.\n\nRules:\n- Start line with |\n- Max 35 words inside |...|\n- When = Time the promise should be fulfilled\n- Where = location name only (no prepositions)\n- Who = NPC name only (no prepositions, the NPC who interacts with the player)\n- What = The promise\n- Story = Your original story narrative\n- Order: When → Where → Who → What\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |today~library~Peter~read the new book|John walk out of the house."
                     }
                 ],
         
@@ -73,7 +73,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nCreate a character paragraph about \"[character]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the character provided\n- Description = One sentence description about the character provided\n- Story = The original output for the story\n- Prepend formatted line before story\n\nExample: |Mary~A pretty lady with long red hair, and loves reading.|Kate walked forward cautiously."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nCreate a character paragraph about \"[character]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the character provided\n- Description = One sentence description about the character provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Mary~A pretty lady with long red hair.|Kate walked forward cautiously."
                     }
                 ],
         
@@ -81,7 +81,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nCreate a location paragraph about \"[location]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the location provided\n- Description = One sentence description about the location provided\n- Story = The original output for the story\n- Prepend formatted line before story\n\nExample: |Forest~A forest near the capital, where hunters go hunting.|Dark trees loomed ahead in the distance, the party advances cautiously."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nCreate a location paragraph about \"[location]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the location provided\n- Description = One sentence description about the location provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Forest~A forest near the capital, where hunters go hunting.|Dark trees loomed ahead in the distance."
                     }
                 ],
 
@@ -89,7 +89,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Event|Story\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about an event that happened to them:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Event = An event happened to the NPC (third person)\n- Story = The original output for the story\n- Prepend formatted line before story\n\nExample: |John~He confronted his rival at the town square.|Duncan stepped forward with determination."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Event|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about an event that happened to them:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Event = An event happened to the NPC (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |John~He confronted his rival at the town square.|Duncan stepped forward with determination."
                     }
                 ],
 
@@ -97,7 +97,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Relationship|Story\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about the latest relationship between this person and the player:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Relationship = A description of the relationship (third person)\n- Story = The original output for the story\n- Prepend formatted line before story\n\nExample: |Duncan~Your new boyfriend you met in a party, who works as an architect and loves singing.|Peter came into the bathroom, and noticed that you are on the phone."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Relationship|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about the latest relationship between this person and the player:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Relationship = A description of the relationship (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Duncan~Your new boyfriend you met in a party,.|Peter came into the bathroom."
                     }
                 ],
 
@@ -466,22 +466,27 @@ const Historian = {
 
         if (characters.length >= this.d_autoAddCharacterLimit) return;
 
-        let found = false;
+        if (configObj.characters.trim() === "") {
+            // List is empty
+            configObj.characters = this.parseAltName(name).trim();
+        } else {
+            let found = false;
 
-        for (let i = 0; i < characters.length; i++) {
-            if (characters[i].trim().toUpperCase() === name.toUpperCase()) found = true;
-            if (characters[i].trim().toUpperCase() === this.parseAltName(name.trim()).toUpperCase()) found = true;
+            for (let i = 0; i < characters.length; i++) {
+                if (characters[i].trim().toUpperCase() === name.toUpperCase()) found = true;
+                if (characters[i].trim().toUpperCase() === this.parseAltName(name.trim()).toUpperCase()) found = true;
 
-            if (found)
-                break;
+                if (found)
+                    break;
+            }
+            
+            // Name exists, do nothing
+            if (found) return;
+
+            // Add that random character into the list
+            characters.push(this.parseAltName(name).trim());
+            configObj.characters = characters.toString().trim();
         }
-        
-        // Name exists, do nothing
-        if (found) return;
-
-        // Add that random character into the list
-        characters.push(name);
-        configObj.characters = characters.toString().trim();
 
         this.updateConfigCard(configObj);
     },
