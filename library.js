@@ -23,7 +23,7 @@ const Historian = {
     // ------------------------------ //
 
     // List of main characters separated by comma
-    mainCharacters: "Ewen,Duncan,Hamish",
+    mainCharacters: "Luna",
 
     // Characters' alternative names/pet names/nicknames
     altNames: [
@@ -32,6 +32,7 @@ const Historian = {
 
     // Default enable statuses
     d_defaultEnabled: true,
+    d_writeJournal: true,
     d_elaborateWho: true,
     d_elaborateWhere: true,
     d_recordActivity: true,
@@ -39,7 +40,7 @@ const Historian = {
     d_autoAddCharacter: true,
 
     // Secret that goes into the beginning of the author's note
-    secretText: "(Luna doesn't appear in the story unless the player specifically looks for her)",
+    secretText: "(Fact unknown to Luna: Mairead is her imaginary friend.)",
 
     // ------------------------------ //
     // ------------------------------ //
@@ -65,7 +66,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |When~Where~Who~What|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nExtract from \"Recent Story\": create a 4W sentence about a player-involved promise.\n\nRules:\n- Start line with |\n- Max 35 words inside |...|\n- When = Time the promise should be fulfilled\n- Where = location name only (no prepositions)\n- Who = NPC name only (no prepositions, the NPC who interacts with the player)\n- What = The promise\n- Story = Your original story narrative\n- Order: When → Where → Who → What\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |today~library~Peter~read the new book|John walk out of the house."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |When~Where~Who~What|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nExtract from \"Recent Story\": create a 4W sentence about a player-involved promise.\n\nRules:\n- Start line with |\n- Max 35 words inside |...|\n- When = Time the promise should be fulfilled\n- Where = location name only (no prepositions)\n- Who = NPC name only (no prepositions, the NPC who interacts with the player)\n- What = The promise\n- Story = Your original story narrative\n- Order: When → Where → Who → What\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |today~library~Peter~read the new book|John walk out of the house."
                     }
                 ],
         
@@ -73,7 +74,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nCreate a character paragraph about \"[character]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the character provided\n- Description = One sentence description about the character provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Mary~A pretty lady with long red hair.|Kate walked forward cautiously."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nCreate a character paragraph about \"[character]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the character provided\n- Description = One sentence description about the character provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Mary~A pretty lady with long red hair.|Kate walked forward cautiously."
                     }
                 ],
         
@@ -81,7 +82,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nCreate a location paragraph about \"[location]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the location provided\n- Description = One sentence description about the location provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Forest~A forest near the capital, where hunters go hunting.|Dark trees loomed ahead in the distance."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nCreate a location paragraph about \"[location]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the location provided\n- Description = One sentence description about the location provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Forest~A forest near the capital, where hunters go hunting.|Dark trees loomed ahead in the distance."
                     }
                 ],
 
@@ -89,7 +90,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Event|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about an event that happened to them:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Event = An event happened to the NPC (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |John~He confronted his rival at the town square.|Duncan stepped forward with determination."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Event|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about an event that happened to them:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Event = An event happened to the NPC (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |John~He confronted his rival at the town square.|Duncan stepped forward with determination."
                     }
                 ],
 
@@ -97,7 +98,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Relationship|Story\n\n⚠️ DO NOT copy example text. Write ORIGINAL content.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about the latest relationship between this person and the player:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Relationship = A description of the relationship (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Duncan~Your new boyfriend you met in a party,.|Peter came into the bathroom."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Relationship|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about the latest relationship between this person and the player:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Relationship = A description of the relationship (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Duncan~Your new boyfriend you met in a party,.|Peter came into the bathroom."
                     }
                 ],
 
@@ -148,7 +149,7 @@ const Historian = {
     getSettingsCardDescription: function() {
         let result = "";
         
-        result += "Updated: 15.07.2026" + "\n";
+        result += "Updated: 17.07.2026" + "\n";
         result += "\n";
 
         result += "--------------------------------------------------" + "\n";
@@ -156,6 +157,7 @@ const Historian = {
 
         result += "[Settings]" + "\n";
         result += "- Enable: true/false. Set to 'true' to use the script." + "\n";
+        result += "- Write Journal: true/false. Writes a journal. \"Who\" and \"Where\" cards won't appear when this is turned off." + "\n";
         result += "- Elaborate Who: true/false. An additional card will be generated for the person mentioned in the journal." + "\n";
         result += "- Elaborate Where: true/false. An additional card will be generated for the place mentioned in the journal." + "\n";
         result += "- Characters: A list of main characters (excluding yourself), separated by commas." + "\n";
@@ -253,6 +255,7 @@ const Historian = {
         // Create config card
         let entry = "";
         entry += "Enable: " + this.getDefaultEnabled().toString() + "\n";
+        entry += "Write Journal: " + this.d_writeJournal.toString() + "\n";
         entry += "Elaborate Who: " + this.d_elaborateWho.toString() + "\n";
         entry += "Elaborate Where: " + this.d_elaborateWhere.toString() + "\n";
         entry += "Characters: " + this.mainCharacters + "\n";
@@ -273,6 +276,7 @@ const Historian = {
 
         let updatedEntry = "";
         updatedEntry += "Enable: " + configObj.enabled.toString() + "\n";
+        updatedEntry += "Write Journal: " + configObj.writeJournal.toString() + "\n";
         updatedEntry += "Elaborate Who: " + configObj.elaborateWho.toString() + "\n";
         updatedEntry += "Elaborate Where: " + configObj.elaborateWhere.toString() + "\n";
         updatedEntry += "Characters: " + configObj.characters + "\n";
@@ -294,6 +298,8 @@ const Historian = {
         sentences.forEach((element) => {
             if (element.startsWith("Enable:")) {
                 resultObj.enabled = (element.substring(7).trim().toUpperCase() == "TRUE" ? true : false);
+            } else if (element.startsWith("Write Journal:")) {
+                resultObj.writeJournal = (element.substring(14).trim().toUpperCase() == "TRUE" ? true : false);
             } else if (element.startsWith("Elaborate Who:")) {
                 resultObj.elaborateWho = (element.substring(14).trim().toUpperCase() == "TRUE" ? true : false);
             } else if (element.startsWith("Elaborate Where:")) {
@@ -803,65 +809,67 @@ const Historian = {
 
         /****************************** Sub Journal ******************************/
 
-        // Check current journal
-        let subJournals = this.getSubJournals();
+        if (configObj.writeJournal) {
+            // Check current journal
+            let subJournals = this.getSubJournals();
 
-        // Generate for sub journal
-        if (this.shouldGetSubJournal(subJournals)) {
-            result = this.insertPrompt(result, this.journalPrompts, []);
-            this.setGenerationReport(_GENERATE_SUBJOURNAL, null, null);
-            modified = true;
-        } else {
-            // Priority is to supplement sub journals, so it is in the else clause
+            // Generate for sub journal
+            if (this.shouldGetSubJournal(subJournals)) {
+                result = this.insertPrompt(result, this.journalPrompts, []);
+                this.setGenerationReport(_GENERATE_SUBJOURNAL, null, null);
+                modified = true;
+            } else {
+                // Priority is to supplement sub journals, so it is in the else clause
 
-            let segments = [];
-            let placeholders = [];
+                let segments = [];
+                let placeholders = [];
 
-            for (let i = 0; i < subJournals.length; i++) {
-                // Skip expired sub journals
-                if (subJournals[i].isExpired) continue;
+                for (let i = 0; i < subJournals.length; i++) {
+                    // Skip expired sub journals
+                    if (subJournals[i].isExpired) continue;
 
-                // Break sub journal into parsable segments
-                segments = subJournals[i].event.trim().split("~");
+                    // Break sub journal into parsable segments
+                    segments = subJournals[i].event.trim().split("~");
 
-                // Skip sub journals in wrong format
-                if (segments.length != this.d_subJournalSegments) continue;
+                    // Skip sub journals in wrong format
+                    if (segments.length != this.d_subJournalSegments) continue;
 
-                // Generate who
-                if (configObj.elaborateWho) {
-                    let whoCardName = subJournals[i].cardName + this.whoCardSuffix;
-                    let whoCard = this.getStoryCard(whoCardName);
+                    // Generate who
+                    if (configObj.elaborateWho) {
+                        let whoCardName = subJournals[i].cardName + this.whoCardSuffix;
+                        let whoCard = this.getStoryCard(whoCardName);
 
-                    if (whoCard === undefined || whoCard === null) {
-                        placeholders = [];
-                        placeholders.push({ placeholder: "[event]", replacement: subJournals[i].event });
-                        placeholders.push({ placeholder: "[character]", replacement: segments[2].trim() });
+                        if (whoCard === undefined || whoCard === null) {
+                            placeholders = [];
+                            placeholders.push({ placeholder: "[event]", replacement: subJournals[i].event });
+                            placeholders.push({ placeholder: "[character]", replacement: segments[2].trim() });
 
-                        result = this.insertPrompt(result, this.whoPrompts, placeholders);
-                        this.setGenerationReport(_GENERATE_WHO, subJournals[i], null);
+                            result = this.insertPrompt(result, this.whoPrompts, placeholders);
+                            this.setGenerationReport(_GENERATE_WHO, subJournals[i], null);
 
-                        // Got prompt, exit loop
-                        modified = true;
-                        break;
+                            // Got prompt, exit loop
+                            modified = true;
+                            break;
+                        }
                     }
-                }
 
-                // Generate where
-                if (configObj.elaborateWhere) {
-                    let whereCardName = subJournals[i].cardName + this.whereCardSuffix;
-                    let whereCard = this.getStoryCard(whereCardName);
+                    // Generate where
+                    if (configObj.elaborateWhere) {
+                        let whereCardName = subJournals[i].cardName + this.whereCardSuffix;
+                        let whereCard = this.getStoryCard(whereCardName);
 
-                    if (whereCard === undefined || whereCard === null) {
-                        placeholders = [];
-                        placeholders.push({ placeholder: "[event]", replacement: subJournals[i].event });
-                        placeholders.push({ placeholder: "[location]", replacement: segments[1].trim() });
+                        if (whereCard === undefined || whereCard === null) {
+                            placeholders = [];
+                            placeholders.push({ placeholder: "[event]", replacement: subJournals[i].event });
+                            placeholders.push({ placeholder: "[location]", replacement: segments[1].trim() });
 
-                        result = this.insertPrompt(result, this.wherePrompts, placeholders);
-                        this.setGenerationReport(_GENERATE_WHERE, subJournals[i], null);
+                            result = this.insertPrompt(result, this.wherePrompts, placeholders);
+                            this.setGenerationReport(_GENERATE_WHERE, subJournals[i], null);
 
-                        // Got prompt, exit loop
-                        modified = true;
-                        break;
+                            // Got prompt, exit loop
+                            modified = true;
+                            break;
+                        }
                     }
                 }
             }
