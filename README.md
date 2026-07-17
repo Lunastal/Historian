@@ -64,6 +64,7 @@ _Except for the Who and Where cards, all contents are prefixed with "{Action Cou
 
 **Settings**
 - Enable: true/false. Set to 'true' to use the script.
+- Write Journal: true/false. Writes a journal. "Who" and "Where" cards won't appear when this is turned off.
 - Elaborate Who: true/false. An additional card will be generated for the person mentioned in the journal.
 - Elaborate Where: true/false. An additional card will be generated for the place mentioned in the journal.
 - Characters: A list of main characters (excluding yourself), separated by commas.
@@ -90,7 +91,15 @@ _Except for the Who and Where cards, all contents are prefixed with "{Action Cou
 1. On the Details tab in the scenario edit page, look for "Scripting" and enable "Scripts Enabled".
 2. Click the Edit Scripts button.
 3. Copy the contents of the file _library.js_ and paste them into "Library".
-4. Copy the contents of the file _input.js_ and paste them into "Input".
-5. Copy the contents of the file _context.js_ and paste them into "Context".
-6. Copy the contents of the file _output.js_ and paste them into "Output".
-7. Save and test!
+4. Update the settings under "Settings to adjust".
+     > mainCharacters: Default list of characters for activity logs and bonds.
+     
+     > altNames: Characters' alternative names. (e.g., sometimes the AI will use "Lùnastal", the full name, to call Luna. But you will want to keep them in the same log.)
+     
+     > d_xxxxxxxx: The default values of the settings.
+     
+     > secretText: A secret text that is inserted into "Author's notes", to remind the AI about important things. The real usage is to inject things that can affect the upcoming round into the context.
+6. Copy the contents of the file _input.js_ and paste them into "Input".
+7. Copy the contents of the file _context.js_ and paste them into "Context".
+8. Copy the contents of the file _output.js_ and paste them into "Output".
+9. Save and test!
