@@ -9,7 +9,7 @@ const _GENERATE_PERSONALBOND = 5;
 
 const Historian = {
     // Constants
-    moduleName: "✒️ Historian 📚",
+    moduleName: "📚 Historian",
     configCardName: "⚙️ Settings",
     journalCardName: "Master Journal",
     subJournalCardName: "Journal - ",
