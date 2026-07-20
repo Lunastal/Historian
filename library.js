@@ -149,7 +149,10 @@ const Historian = {
     getSettingsCardDescription: function() {
         let result = "";
         
-        result += "Updated: 17.07.2026" + "\n";
+        result += "Updated: 20.07.2026" + "\n";
+        result += "\n";
+
+        result += "Historian works like a memory system focused on one promise at a time—ensuring the story fulfills each commitment through continuously renewed relationships — so the memory evolves with the plot rather than becoming stale." + "\n";
         result += "\n";
 
         result += "--------------------------------------------------" + "\n";
