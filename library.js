@@ -47,7 +47,7 @@ const Historian = {
     // ------------------------------ //
 
     // Default values
-    d_delayStart: 8,
+    d_delayStart: 15,
 
     d_maxJournalLength: 1775,
     d_maxSubJournal: 1,
