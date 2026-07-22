@@ -47,7 +47,7 @@ const Historian = {
     // ------------------------------ //
 
     // Default values
-    d_delayStart: 15,
+    d_delayStart: 10,
 
     d_maxJournalLength: 1775,
     d_maxSubJournal: 1,
@@ -66,7 +66,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |When~Where~Who~What|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nExtract from \"Recent Story\": create a 4W sentence about a player-involved promise.\n\nRules:\n- Start line with |\n- Max 35 words inside |...|\n- When = Time the promise should be fulfilled\n- Where = location name only (no prepositions)\n- Who = NPC name only (no prepositions, the NPC who interacts with the player)\n- What = The promise\n- Story = Your original story narrative\n- Order: When → Where → Who → What\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |today~library~Peter~read the new book|John walk out of the house."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |When~Where~Who~What|Story\n\nExtract from \"Recent Story\": create a 4W sentence about a latest upcoming event involving the player and an NPC.\n\nRules:\n- Start line with |\n- Max 35 words inside |...|\n- DO NOT copy example text as the Story. Continue to narrate for the Story\n- When = Time the specific promise or commitment should be fulfilled\n- Where = location name only (no prepositions)\n- Who = NPC name only (no prepositions, the NPC who interacts with the player)\n- What = The specific promise or commitment made\n- Story = Your original story narrative\n- Order: When → Where → Who → What\n- Prepend formatted line before story\n- You may ONLY extract an event that is explicitly stated or directly implied in the text above. Do NOT invent, assume, or fabricate events not present in the story\n\nExample (FORMAT ONLY): |today~library~Peter~read the new book|John walk out of the house."
                     }
                 ],
         
@@ -74,7 +74,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nCreate a character paragraph about \"[character]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the character provided\n- Description = One sentence description about the character provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Mary~A pretty lady with long red hair.|Kate walked forward cautiously."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nCreate a character paragraph about \"[character]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- DO NOT copy example text as the Story. Continue to narrate for the Story\n- Name = Name of the character provided\n- Description = One sentence description about the character provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Mary~A pretty lady with long red hair.|Kate walked forward cautiously."
                     }
                 ],
         
@@ -82,7 +82,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nCreate a location paragraph about \"[location]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- Name = Name of the location provided\n- Description = One sentence description about the location provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Forest~A forest near the capital, where hunters go hunting.|Dark trees loomed ahead in the distance."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Description|Story\n\nCreate a location paragraph about \"[location]\" based on \"[event]\".\n\nRules:\n- Start line with |\n- Max 40 words inside |...|\n- DO NOT copy example text as the Story. Continue to narrate for the Story\n- Name = Name of the location provided\n- Description = One sentence description about the location provided\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Forest~A forest near the capital, where hunters go hunting.|Dark trees loomed ahead in the distance."
                     }
                 ],
 
@@ -90,7 +90,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Event|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about an event that happened to them:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Event = An event happened to the NPC (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |John~He confronted his rival at the town square.|Duncan stepped forward with determination."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Event|Story\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about a latest event that happened to them:\n- Start line with |\n- Max 35 words inside |...|\n- DO NOT copy example text as the Story. Continue to narrate for the Story\n- Name = NPC name only (no prepositions)\n- Event = An event happened to the NPC (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n- You may ONLY extract an event that is explicitly stated or directly implied in the text above. Do NOT invent, assume, or fabricate events not present in the story\n\nExample (FORMAT ONLY): |John~He confronted his rival at the town square.|Duncan stepped forward with determination."
                     }
                 ],
 
@@ -98,7 +98,7 @@ const Historian = {
                     {
                         models: [ "DeepSeek", "DeepSeek V4 Flash", "Deepseek v4 Pro", "Equinox", "Fable", "Gemma 4 31B", "GLM 5.1", "GLM 5.2", "Harbinger", "Hermes 3 405B", "Hearthfire", "Madness", "Muse", "Nova", "Wayfarer Large", "Wayfarer Small 2" ],
                         position: "END",
-                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Relationship|Story\n\nDO NOT copy example text as the Story. Continue to narrate for the Story.\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about the latest relationship between this person and the player:\n- Start line with |\n- Max 35 words inside |...|\n- Name = NPC name only (no prepositions)\n- Relationship = A description of the relationship (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Duncan~Your new boyfriend you met in a party,.|Peter came into the bathroom."
+                        prompt: "### Generate below in addition to the story:\n\nFormat: |Name~Relationship|Story\n\nSelect the person who appeared most in \"Recent Story\" strictly from: [characters].\n\nCreate a paragraph about the latest relationship between this person and the player:\n- Start line with |\n- Max 35 words inside |...|\n- DO NOT copy example text as the Story. Continue to narrate for the Story\n- Name = NPC name only (no prepositions)\n- Relationship = A description of the relationship (third person)\n- Story = Your original story narrative\n- Prepend formatted line before story\n\nExample (FORMAT ONLY): |Duncan~Your new boyfriend you met in a party,.|Peter came into the bathroom."
                     }
                 ],
 
@@ -149,7 +149,7 @@ const Historian = {
     getSettingsCardDescription: function() {
         let result = "";
         
-        result += "Updated: 20.07.2026" + "\n";
+        result += "Updated: 22.07.2026" + "\n";
         result += "\n";
 
         result += "Historian works like a memory system focused on one promise at a time—ensuring the story fulfills each commitment through continuously renewed relationships — so the memory evolves with the plot rather than becoming stale." + "\n";
@@ -535,7 +535,7 @@ const Historian = {
         let logs = this.getPersonalLogHistory();
 
         if (logs.length > 3)
-            result += (logs.length - 3);
+            result += ( (logs.length - 3) * 2 );
 
         return result;
     },
